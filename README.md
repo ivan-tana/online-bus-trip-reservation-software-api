@@ -5,84 +5,84 @@ This API powers an online bus trip reservation platform designed to streamline t
 
 **Tables:**
 
-    **Users:**
+**Users:**
 
-    - id (primary key)
-    - name (first and last names)
-    - email
-    - phone_number
-    - password (hashed securely)
-    - role
-    - created_at
-    - image_url (optional)
-    - town_name (optional)
-    - DoB (optional)
+- id (primary key)
+- name (first and last names)
+- email
+- phone_number
+- password (hashed securely)
+- role
+- created_at
+- image_url (optional)
+- town_name (optional)
+- DoB (optional)
 
-    **Trips:**
-    - id (primary key)
-    - agency_id
-    - origin
-    - destination
-    - departure_date
-    - departure_time
-    - price
-    - bus_category
-    - bus_number
-    - bus_type
-    - available_seats_left
+**Trips:**
+- id (primary key)
+- agency_id
+- origin
+- destination
+- departure_date
+- departure_time
+- price
+- bus_category
+- bus_number
+- bus_type
+- available_seats_left
 
-    **Bookings:**
+**Bookings:**
 
-    - id (primary key)
-    - user_id
-    - trip_id
-    - payment_method
-    - transaction_id
-    - booked_at
-    - status
+- id (primary key)
+- user_id
+- trip_id
+- payment_method
+- transaction_id
+- booked_at
+- status
 
-    **Agencies:**
+**Agencies:**
 
-    - id (primary key)
-    - name
-    - email
-    - contact_name
-    - phone_number
-    - description
-    - why_choose_us
-    - extra_amenities
-    - agency_images (array to store multiple images)
+- id (primary key)
+- name
+- email
+- contact_name
+- phone_number
+- description
+- why_choose_us
+- extra_amenities
+- agency_images (array to store multiple images)
 
-    **Branches:**
+**Branches:**
 
-    - id (primary key)
-    - agency_id
-    - branch_name
-    - email
-    - contact_name
-    - phone_number
+- id (primary key)
+- agency_id
+- branch_name
+- email
+- contact_name
+- phone_number
 
 
-    **Reviews: (future update)**
+**Reviews: (future update)**
 
-    - id (primary key)
-    - user_id
-    - trip_id
-    - rating
-    - review_text
+- id (primary key)
+- user_id
+- trip_id
+- rating
+- review_text
 
-    **Locations:**
+**Locations:**
 
-    - id (primary key)
-    - city
-    - region
+- id (primary key)
+- city
+- region
 
-    **Payments:**
+**Payments:**
 
-    - id (primary key)
-    - booking_id
-    - payment_gateway
-    - payment_details
+- id (primary key)
+- booking_id
+- payment_gateway
+- payment_details
 
 
 
