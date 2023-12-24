@@ -6,6 +6,7 @@ This API powers an online bus trip reservation platform designed to streamline t
 **Tables:**
 
 **Users:**
+
 - id (primary key)
 - name (first and last names)
 - email
@@ -16,6 +17,7 @@ This API powers an online bus trip reservation platform designed to streamline t
 - image_url (optional)
 - town_name (optional)
 - DoB (optional)
+
 **Trips:**
 - id (primary key)
 - agency_id
@@ -28,7 +30,9 @@ This API powers an online bus trip reservation platform designed to streamline t
 - bus_number
 - bus_type
 - available_seats_left
+
 **Bookings:**
+
 - id (primary key)
 - user_id
 - trip_id
@@ -36,7 +40,9 @@ This API powers an online bus trip reservation platform designed to streamline t
 - transaction_id
 - booked_at
 - status
+
 **Agencies:**
+
 - id (primary key)
 - name
 - email
@@ -46,24 +52,33 @@ This API powers an online bus trip reservation platform designed to streamline t
 - why_choose_us
 - extra_amenities
 - agency_images (array to store multiple images)
+
 **Branches:**
+
 - id (primary key)
 - agency_id
 - branch_name
 - email
 - contact_name
 - phone_number
+
+
 **Reviews: (future update)**
+
 - id (primary key)
 - user_id
 - trip_id
 - rating
 - review_text
+
 **Locations:**
+
 - id (primary key)
 - city
 - region
+
 **Payments:**
+
 - id (primary key)
 - booking_id
 - payment_gateway
