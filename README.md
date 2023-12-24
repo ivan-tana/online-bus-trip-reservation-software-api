@@ -18,28 +18,28 @@ This API powers an online bus trip reservation platform designed to streamline t
 
 **Relationships:**
 
-- Users:1-N->Bookings
-- Trips:1-N->Agencies
-- Bookings:N-1->Users, N-1->Trips
-- Agencies:1-N->Branches
-- Branches:1-N->Trips
+--Users have many Bookings (one-to-many)
+--Trips belong to one Agency (one-to-many)
+--Bookings belong to one Trip and one User (many-to-many)
+--Agencies have many Branches (one-to-many)
+--Branches manage Trips (one-to-many)
 
-**API Routes:**
+**API Routes (considerations):**
 
-- Consider PUT/PATCH for updates.
-- Add routes for filtering/searching trips.
-- Implement versioning for future changes.
+--Use PUT/PATCH for updating resources appropriately.
+--Add routes for filtering and searching trips.
+--Implement versioning for future API changes.
 
 **Security:**
 
-- Hash user passwords.
-- Use JWT with expiry/refresh mechanisms.
-- Authorize access based on roles/permissions.
+--Encrypt user passwords.
+--Implement JWT tokens with expiry and refresh mechanisms.
+--Authorize access based on user roles and permissions.
 
 **Additional Considerations:**
 
-- Optimize database queries/performance.
-- Document API using OpenAPI Specification.
-- Use caching for frequently accessed data.
-- Plan for scalability/redundancy.
+--Optimize database queries and performance.
+--Document API using OpenAPI Specification.
+--Utilize caching mechanisms for frequently accessed data.
+--Plan for scalability and redundancy.
 
