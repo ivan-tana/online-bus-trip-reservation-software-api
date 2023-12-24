@@ -7,7 +7,7 @@ This API powers an online bus trip reservation platform designed to streamline t
 
 | Table Name | Columns |
 |---|---|
-| Users | id (int), name (varchar), email (varchar), phone_number (varchar), password (varchar), role (varchar), created_at (datetime), image_url (varchar), town_name (varchar), DoB (date) |
+| Users | id (int) - name (varchar) - email (varchar)- phone_number (varchar) - password (varchar) - role (varchar) - created_at (datetime) - image_url (varchar) - town_name (varchar) - DoB (date) |
 | Trips | id (int), agency_id (int), origin (varchar), destination (varchar), departure_date (date), departure_time (time), price (decimal), bus_category (varchar), bus_number (varchar), bus_type (varchar), available_seats_left (int) |
 | Bookings | id (int), user_id (int), trip_id (int), payment_method (varchar), transaction_id (varchar), booked_at (datetime), status (varchar) |
 | Agencies | id (int), name (varchar), email (varchar), contact_name (varchar), phone_number (varchar), description (text), why_choose_us (text), extra_amenities (text), agency_images (array of varchar) |
@@ -15,6 +15,12 @@ This API powers an online bus trip reservation platform designed to streamline t
 | Reviews (future update) | id (int), user_id (int), trip_id (int), rating (int), review_text (text) |
 | Locations | id (int), city (varchar), region (varchar) |
 | Payments | id (int), booking_id (int), payment_gateway (varchar), payment_details (text) |
+
+
+
+
+
+
 
 **Relationships:**
 
