@@ -2,7 +2,10 @@
 fastapi
 pydantic
 uvicorn[standard]
-
+ujson
+pydantic[email]
+pydantic-extra-types
+phonenumbers
 
 # CI/CD;
 pytest

@@ -4,12 +4,15 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-fastapi = "==0.78.0"
-pydantic = "==1.9.1"
-pytest = "==7.1.2"
-pytest-asyncio = "==0.18.3"
-flake8 = "==4.0.1"
-uvicorn = {version = "==0.18.2", extras = ["standard"]}
+fastapi = "*"
+uvicorn = {version = "*", extras = ["standard"]}
+pytest = "*"
+pytest-asyncio = "*"
+flake8 = "*"
+ujson = "*"
+pydantic = {version = "*", extras = ["email"]}
+pydantic-extra-types = "*"
+phonenumbers = "*"
 
 [dev-packages]
 
