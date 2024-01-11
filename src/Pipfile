@@ -13,6 +13,7 @@ ujson = "*"
 pydantic = {version = "*", extras = ["email"]}
 pydantic-extra-types = "*"
 phonenumbers = "*"
+firebase-admin = "*"
 
 [dev-packages]
 
