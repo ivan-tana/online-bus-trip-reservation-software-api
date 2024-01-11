@@ -4,7 +4,7 @@ from fastapi.routing import APIRouter
 
 from api.routes.user import user
 from api.routes.agencie import agencie
-from api.lifetime import register_shutdown_event, register_startup_event
+from api.lifetime import lifespan
 from api.exception_handlers import register_exception_handlers
 
 
@@ -12,6 +12,7 @@ def get_app() -> FastAPI:
     """Get API app
     """
     app = FastAPI(
+        lifespan=lifespan
         title='online bus trip reservation',
         description="""
         This API powers an online bus trip reservation platform designed to streamline the booking process
@@ -24,9 +25,8 @@ def get_app() -> FastAPI:
         default_response_class=UJSONResponse,
     )
 
+
     # Adds startup and shutdown events.
-    register_startup_event(app)
-    register_shutdown_event(app)
     register_exception_handlers(app)
 
     api_router = APIRouter()
