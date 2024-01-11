@@ -6,6 +6,7 @@ ujson
 pydantic[email]
 pydantic-extra-types
 phonenumbers
+firebase_admin
 
 # CI/CD;
 pytest
