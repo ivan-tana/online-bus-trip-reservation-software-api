@@ -12,7 +12,7 @@ def get_app() -> FastAPI:
     """Get API app
     """
     app = FastAPI(
-        lifespan=lifespan
+        lifespan=lifespan,
         title='online bus trip reservation',
         description="""
         This API powers an online bus trip reservation platform designed to streamline the booking process
