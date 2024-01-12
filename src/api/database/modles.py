@@ -9,8 +9,6 @@ class Agency(BaseModel):
     phone_number:  PhoneNumber
     why_choose_us: str 
     agency_imeages: list[str]
-    admin_password: str 
-    admin_email: EmailStr
     website: str | None
 
 class Branch(BaseModel):

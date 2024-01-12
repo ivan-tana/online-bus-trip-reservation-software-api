@@ -3,7 +3,7 @@ from fastapi.responses import UJSONResponse
 from fastapi.routing import APIRouter
 
 from api.routes.user import user
-from api.routes.agencie import agencie
+from api.routes.agencie import agency
 from api.lifetime import lifespan
 from api.exception_handlers import register_exception_handlers
 
@@ -34,6 +34,6 @@ def get_app() -> FastAPI:
     
     
     app.include_router(router=api_router, prefix='/api')
-    app.include_router(router=agencie, prefix='/agencie')
+    app.include_router(router=agency, prefix='/agencie')
 
     return app

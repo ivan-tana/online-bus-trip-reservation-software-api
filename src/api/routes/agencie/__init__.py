@@ -1,20 +1,30 @@
 from fastapi import APIRouter, Body
 from typing import Annotated
 
-from .agencie_modles import Agencies
+from .modles import AgencyCreationForm
 
 
-agencie = APIRouter(
+agency = APIRouter(
     tags=['Agencies']
     
 )
 
-@agencie.get('/')
+@agency.get('/')
 async def get_agencies():
     return {
         'message': 'hello'
     }
 
-@agencie.post('/')
-def create_agencie(agencie: Annotated[Agencies, Body(embed=True)]):
-    return agencie
+@agency.post('/')
+def create_agencie(agency: Annotated[AgencyCreationForm, Body(embed=True)]):
+    print(agency.model_dump())
+    return agency
+
+
+@agency.get('/{agency_id}/branch')
+async def get_branches(agency_id):
+    return agency_id
+
+@agency.get('/{agency_id}/branch/{branch_id}')
+async def get_branche(agency_id, branch_id):
+    pass
