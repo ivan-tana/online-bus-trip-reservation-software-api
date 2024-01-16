@@ -14,6 +14,25 @@ class AgencyCreationForm(BaseModel):
     why_choose_us: str 
     agency_imeages: list[str]
 
+class Locatiion(BaseModel):
+    country: str 
+    region : str 
+    city: str 
+    street: str 
+    geo_location: list
+
+class BranchCreation(BaseModel):
+    name: str | None 
+    location : Locatiion 
+    momo_phone_number: PhoneNumber
+    description: str 
+    images: list
+    email: EmailStr
+    contact_phone_number: PhoneNumber
+
+
+
+
 
 
 
