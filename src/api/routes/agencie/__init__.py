@@ -1,72 +1,65 @@
 from fastapi import APIRouter, Body
 from typing import Annotated
 
-from .modles import AgencyCreationForm, BranchCreation
+from .modles import AgencyCreationForm, BranchCreation, AgencyUpdateForm, BranchUpdate
 from api.database import agencie as db
-from api.database.modles import Agency, Branch
 
 
-agency = APIRouter(
+
+Agency = APIRouter(
     tags=['Agency']
     
 )
 
-@agency.get('/')
+@Agency.get('/')
 async def get_agencies():
     return db.get_agencies()
 
 # Agency
-@agency.post('/')
+@Agency.post('/')
 def create_agency(agency: Annotated[AgencyCreationForm, Body(embed=True)]):
-    # TODO  validate form data 
+    data = agency.model_dump(exclude_none=True)
+    db.create_agency(data)
+    return {
+        "message": f"{agency.name} created successfuly"
+    }
 
 
 
-    data = agency.model_dump()
-
-    # create agency
-    try: 
-        db.create_agency(Agency(**data))
-        return {
-            "message": f"{agency.name} created successfuly"
-        }
-    except: 
-        # TODO specify the resone for the error 
-        # TODO send the correct response code 
-        return {
-            "message": f" could not create {agency.name}"
-        }
-    
+@Agency.put('/')
+def update_agency(agency: Annotated[AgencyUpdateForm, Body(embed=True)]):
+    data = agency.model_dump(exclude_none=True)
+    db.update_agency(data)
+    return {
+        "messsage": "Updated successfully"
+    }
 
 
 #Branch
-@agency.get('/{agency_id}/branch')
+@Agency.get('/{agency_id}/branch')
 async def get_branches(agency_id):
     return agency_id
 
 #create branch 
-@agency.post('/{agency_id}/branch')
+@Agency.post('/{agency_id}/branch')
 async def create_branch(branch: Annotated[BranchCreation, Body(embed=True)]):
-    # TODO  validate form data 
+    data = branch.model_dump(exclude_none=True)
+    db.create_branch(data)
+    return {
+        "message": f"{branch.name} created successfuly"
+    }
+
+# update branch 
+@Agency.put('/{agency_id}/branch/{branch_id}')
+async def update_branch(branch: Annotated[BranchUpdate, Body(embed=True)], agency_id, branch_id):
+    data = branch.model_dump(exclude_none=True)
+    db.update_branch(data, agency_id, branch_id)
+    return {
+        'message': 'branch updated'
+    }
 
 
 
-    data = branch.model_dump()
-
-    # create branch
-    try: 
-        db.create_branch(Branch(**data))
-        return {
-            "message": f"{branch.name} created successfuly"
-        }
-    except: 
-        # TODO specify the resone for the error 
-        # TODO send the correct response code 
-        return {
-            "message": f" could not create {BranchCreation.name}"
-        }
-
-
-@agency.get('/{agency_id}/branch/{branch_id}')
+@Agency.get('/{agency_id}/branch/{branch_id}')
 async def get_branche(agency_id, branch_id):
     pass
