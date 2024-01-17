@@ -1,6 +1,7 @@
 from pydantic import BaseModel, Field, EmailStr
 from datetime import datetime
 from pydantic_extra_types.phone_numbers import PhoneNumber
+from typing import Optional
 
 class Agency(BaseModel):
     name: str
@@ -8,8 +9,7 @@ class Agency(BaseModel):
     description: str 
     phone_number:  PhoneNumber
     why_choose_us: str 
-    agency_imeages: list[str]
-    website: str | None
+    agency_images: list[str] | None
 
 class Branch(BaseModel):
     agency_id: str
