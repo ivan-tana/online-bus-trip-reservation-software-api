@@ -5,15 +5,17 @@ name = "pypi"
 
 [packages]
 fastapi = "*"
-uvicorn = {version = "*", extras = ["standard"]}
 pytest = "*"
 pytest-asyncio = "*"
 flake8 = "*"
 ujson = "*"
-pydantic = {version = "*", extras = ["email"]}
 pydantic-extra-types = "*"
 phonenumbers = "*"
 firebase-admin = "*"
+google-cloud-firestore = "*"
+tortoise-orm = "*"
+uvicorn = {version = "*", extras = ["standard"]}
+pydantic = {version = "*", extras = ["email"]}
 
 [dev-packages]
 
