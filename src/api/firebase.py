@@ -1,6 +1,5 @@
 import pyrebase
 
-
 firebaseConfig = {
   "apiKey": "AIzaSyA-7GN04OwrefNm6zR3bKtw6vwaetwpzSA",
   "authDomain": "bus-reservation-46c9d.firebaseapp.com",
@@ -13,4 +12,5 @@ firebaseConfig = {
 }
 
 
-pb = pyrebase.initialize_app(firebaseConfig)
+firebase = pyrebase.initialize_app(firebaseConfig)
+db = firebase.database()
