@@ -4,11 +4,15 @@ from fastapi.routing import APIRouter
 
 from api.routes.user import user
 from api.routes.agencie import Agency
+from api.routes.users import userRouter
 from api.lifetime import lifespan
 from api.exception_handlers import register_exception_handlers
 
 
-def get_app() -> FastAPI:
+
+
+
+def app() -> FastAPI:
     """Get API app
     """
     app = FastAPI(
@@ -35,6 +39,7 @@ def get_app() -> FastAPI:
     
     app.include_router(router=api_router, prefix='/api')
     app.include_router(router=Agency, prefix='/agency')
+    app.include_router(router=userRouter, prefix='/user')
     
 
     return app

@@ -1,12 +1,12 @@
-FROM python:3.9-slim  # Base image
+FROM python:3.9-slim  
 
-WORKDIR /app  # Working directory
+WORKDIR /app  
 
-COPY requirements.txt requirements.txt  # Copy requirements file
-RUN pip install -r requirements.txt  # Install dependencies
+COPY requirements.txt requirements.txt  
+RUN pip install -r requirements.txt 
 
-COPY api .  # Copy all project files
+COPY ./api /app/  
 
-EXPOSE 8000  # Expose port 8000
+EXPOSE 8000  
 
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]  # Start the server
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]  
