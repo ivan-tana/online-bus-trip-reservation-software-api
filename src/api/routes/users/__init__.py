@@ -4,7 +4,7 @@ from .models import UserCreationForm, UserLoginForm
 from firebase_admin import auth
 from fastapi.responses import JSONResponse
 from fastapi.exceptions import HTTPException
-from ...firebase import pb
+from ...firebase import firebase
 from ...helpers import exceptions
 
 
@@ -51,7 +51,7 @@ def login(user: Annotated[UserLoginForm, Body(embed=True)]):
 
     try:
        
-       current_user = pb.auth().sign_in_with_email_and_password(user.email, user.password)
+       current_user = firebase.auth().sign_in_with_email_and_password(user.email, user.password)
        jwt = current_user['idToken']
        return JSONResponse(content={'token': jwt}, status_code=status.HTTP_200_OK)
     except:
