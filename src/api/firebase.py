@@ -1,4 +1,10 @@
 import pyrebase
+from firebase_admin import firestore
+import datetime
+import firebase_admin
+from firebase_admin import credentials
+import os
+
 
 firebaseConfig = {
   "apiKey": "AIzaSyA-7GN04OwrefNm6zR3bKtw6vwaetwpzSA",
@@ -11,6 +17,20 @@ firebaseConfig = {
   "databaseURL": "https://bus-reservation-46c9d.firebasedatabase.app"
 }
 
+cred = credentials.Certificate(os.environ['GOOGLE_APPLICATION_CREDENTIALS']) 
+firebase_admin.initialize_app(credential=cred)
 
 firebase = pyrebase.initialize_app(firebaseConfig)
-db = firebase.database()
+db = firestore.client()
+
+# data = {
+#     "stringExample": "Hello, World!",
+#     "booleanExample": True,
+#     "numberExample": 3.14159265,
+#     "dateExample": datetime.datetime.now(tz=datetime.timezone.utc),
+#     "arrayExample": [5, True, "hello"],
+#     "nullExample": None,
+#     "objectExample": {"a": 5, "b": True},
+# }
+
+# db.collection("data").document("one").set(data)
