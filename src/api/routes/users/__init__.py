@@ -4,8 +4,8 @@ from .models import UserCreationForm, UserLoginForm
 from firebase_admin import auth
 from fastapi.responses import JSONResponse
 from fastapi.exceptions import HTTPException
-from api.firebase import pb
-from api.helpers import exceptions
+from ...firebase import pb
+from ...helpers import exceptions
 
 
 userRouter = APIRouter(

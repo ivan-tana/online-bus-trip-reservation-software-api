@@ -5,7 +5,7 @@ WORKDIR /api
 COPY requirements.txt requirements.txt  
 RUN pip install -r requirements.txt 
 
-COPY ./api /api/  
+COPY ./api . 
 
 EXPOSE 8000  
 

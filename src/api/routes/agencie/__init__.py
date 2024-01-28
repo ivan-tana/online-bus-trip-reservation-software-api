@@ -2,7 +2,7 @@ from fastapi import APIRouter, Body
 from typing import Annotated
 
 from .modles import AgencyCreationForm, BranchCreation, AgencyUpdateForm, BranchUpdate
-from api.database import agencie as db
+from ...database import agencie as db
 
 
 

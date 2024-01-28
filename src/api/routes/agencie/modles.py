@@ -1,7 +1,7 @@
 from pydantic import BaseModel, Field
 from pydantic import EmailStr, AnyUrl
 from pydantic_extra_types.phone_numbers import PhoneNumber
-from api.config import SUPPORTED_COUNTRY
+from ...config import SUPPORTED_COUNTRY
 
 
 PhoneNumber.supported_regions = SUPPORTED_COUNTRY

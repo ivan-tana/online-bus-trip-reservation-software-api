@@ -2,11 +2,11 @@ from fastapi import FastAPI
 from fastapi.responses import UJSONResponse
 from fastapi.routing import APIRouter
 
-from api.routes.user import user
-from api.routes.agencie import Agency
-from api.routes.users import userRouter
-from api.lifetime import lifespan
-from api.exception_handlers import register_exception_handlers
+from routes.user import user
+from routes.agencie import Agency
+from routes.users import userRouter
+from lifetime import lifespan
+from exception_handlers import register_exception_handlers
 from fastapi.middleware.cors import CORSMiddleware
 
 
