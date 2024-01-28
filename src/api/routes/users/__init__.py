@@ -1,6 +1,7 @@
 from fastapi import APIRouter, Body
 from typing import Annotated
 from .models import UserCreationForm, UserLoginForm
+from firebase_admin import auth
 
 
 userRouter = APIRouter(
