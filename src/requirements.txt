@@ -1,5 +1,6 @@
 #API:
 fastapi
+pyrebase4
 pydantic
 uvicorn[standard]
 ujson
