@@ -6,7 +6,7 @@ from api.routes.user import user
 from api.routes.agencie import Agency
 from api.routes.users import userRouter
 from api.lifetime import lifespan
-from exception_handlers import register_exception_handlers
+from api.exception_handlers import register_exception_handlers
 from fastapi.middleware.cors import CORSMiddleware
 
 

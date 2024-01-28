@@ -3,8 +3,8 @@ import logging
 from fastapi import FastAPI, status, Request
 from fastapi.responses import JSONResponse
 from fastapi.exceptions import RequestValidationError
-from helpers import exceptions
-from helpers.functions import exception_message
+from api.helpers import exceptions
+from api.helpers.functions import exception_message
 from pydantic_core import PydanticCustomError
 
 
