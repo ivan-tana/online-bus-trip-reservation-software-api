@@ -9,7 +9,7 @@ firebaseConfig = {
   "messagingSenderId": "588555460302",
   "appId": "1:588555460302:web:e36f3f94085f7b4d057a9f",
   "measurementId": "G-RXQ6S3GFN1",
-  "databaseURL": ""
+  "databaseURL": "https://bus-reservation-46c9d.firebasedatabase.app"
 }
 
 
