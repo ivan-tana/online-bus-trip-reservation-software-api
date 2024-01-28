@@ -8,8 +8,7 @@ pydantic[email]
 pydantic-extra-types
 phonenumbers
 firebase_admin
-google-cloud-firestore
-tortoise-orm
+
 
 # CI/CD;
 pytest

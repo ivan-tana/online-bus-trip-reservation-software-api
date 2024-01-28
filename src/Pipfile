@@ -14,6 +14,7 @@ phonenumbers = "*"
 firebase-admin = "*"
 google-cloud-firestore = "*"
 tortoise-orm = "*"
+pyrebase4 = "*"
 uvicorn = {version = "*", extras = ["standard"]}
 pydantic = {version = "*", extras = ["email"]}
 

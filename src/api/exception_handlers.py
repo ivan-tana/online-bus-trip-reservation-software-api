@@ -39,9 +39,27 @@ async def request_validation_error(_: Request, exception: RequestValidationError
     )
 
 
+async def login_error(_: Request, exception: exceptions.LoginExeption):
+
+    logging.exception(exception)
+    return JSONResponse(
+        status_code=status.HTTP_400_BAD_REQUEST,
+        content={'message': exception_message(exception)}
+    )
+async def user_creation_eror(_: Request, exception: exceptions.UserCreationError):
+
+    logging.exception(exception)
+    return JSONResponse(
+        status_code=status.HTTP_400_BAD_REQUEST,
+        content={'message': exception_message(exception)}
+    )
+
+
 def register_exception_handlers(app: FastAPI) -> None:
     """Add exception handlers to FastAPI app
     """
     app.add_exception_handler(Exception, default_error_handler)
     app.add_exception_handler(exceptions.AgencyAlreadyExist, agency_already_exist)
     app.add_exception_handler(RequestValidationError, request_validation_error)
+    app.add_exception_handler(exceptions.LoginExeption, login_error)
+    app.add_exception_handler(exceptions.UserCreationError, user_creation_eror)

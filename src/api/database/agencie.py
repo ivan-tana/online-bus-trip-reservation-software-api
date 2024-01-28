@@ -22,30 +22,6 @@ agencies  = [
 ]
 
 
-from google.cloud import firestore_admin_v1
-
-def sample_create_database():
-    # Create a client
-    client = firestore_admin_v1.FirestoreAdminClient()
-
-    # Initialize request argument(s)
-    request = firestore_admin_v1.CreateDatabaseRequest(
-        parent="parent_value",
-        database_id="database_id_value",
-    )
-
-    # Make the request
-    operation = client.create_database(request=request)
-
-    print("Waiting for operation to complete...")
-
-    response = operation.result()
-
-    # Handle the response
-    print(response)
-
-sample_create_database()
-
 # create 
 def  create_agency(data: dict):
     # raise exceptions.AgencyAlreadyExist(f"an agency with the name {data['name']} already exist")

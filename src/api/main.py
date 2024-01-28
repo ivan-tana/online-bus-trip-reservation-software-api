@@ -7,6 +7,7 @@ from api.routes.agencie import Agency
 from api.routes.users import userRouter
 from api.lifetime import lifespan
 from api.exception_handlers import register_exception_handlers
+from fastapi.middleware.cors import CORSMiddleware
 
 
 
@@ -28,7 +29,14 @@ def app() -> FastAPI:
         openapi_url='/api/openapi.json',
         default_response_class=UJSONResponse,
     )
-
+    allow_all = ['*']
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=allow_all,
+        allow_credentials=True,
+        allow_methods=allow_all,
+        allow_headers=allow_all
+    )
 
     # Adds startup and shutdown events.
     register_exception_handlers(app)
