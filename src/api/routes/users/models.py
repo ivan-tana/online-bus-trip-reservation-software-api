@@ -1,6 +1,7 @@
 from pydantic import BaseModel, Field, EmailStr, AnyUrl
 from datetime import datetime
 from pydantic_extra_types.phone_numbers import PhoneNumber
+from ...security import BASIC_USER_PERMISSION
 
 
 
@@ -11,14 +12,10 @@ class UserCreationForm(BaseModel):
     last_name: str 
     email: EmailStr
     phone_number: PhoneNumber
+    permissions: list[str] = BASIC_USER_PERMISSION
     password: str 
-    role: str | None # convert to enum with the roles [super_admin, branch_admin, employee]
-    created_at: datetime = Field(default_factory=datetime.now)
     image_url: AnyUrl | None = None
     birthday: datetime | None = None
-    agency_id: str | None = None
-    branch_id: str | None = None
-    is_admin: bool = False
 
 
     model_config = {
@@ -31,13 +28,8 @@ class UserCreationForm(BaseModel):
                     "email": "janedeo@gmail.com",
                     "phone_number": "+237678098765",
                     'password': '1234567890',
-                    'role': 'branch_admin',
-                    'created_at': datetime.now(),
                     'image_url': 'https://example.com/images/profile.png',
                     'birthday': '02-04-2000',
-                    'agency_id': 1,
-                    'branch_id': 4,
-                    'is_admin': True
                 }
             ]
 

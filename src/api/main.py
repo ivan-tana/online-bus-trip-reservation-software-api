@@ -11,8 +11,6 @@ from fastapi.middleware.cors import CORSMiddleware
 
 
 
-
-
 def app() -> FastAPI:
     """Get API app
     """
