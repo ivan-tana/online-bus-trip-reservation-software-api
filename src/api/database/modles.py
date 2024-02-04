@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Field, EmailStr
+from pydantic import BaseModel, Field, EmailStr, AnyUrl
 from datetime import datetime
 from pydantic_extra_types.phone_numbers import PhoneNumber
 
@@ -17,6 +17,19 @@ class Branch(BaseModel):
     email: EmailStr
     contact_name: str
     phone_number: PhoneNumber
+
+class UserOut(BaseModel):
+    first_name: str 
+    last_name: str 
+    email: EmailStr
+    phone_number: PhoneNumber
+    role: str | None # convert to enum with the roles [super_admin, branch_admin, employee]
+    created_at: datetime = Field(default_factory=datetime.now)
+    image_url: AnyUrl | None = None
+    birthday: datetime | None = None
+
+
+
 
 
 class User(BaseModel):

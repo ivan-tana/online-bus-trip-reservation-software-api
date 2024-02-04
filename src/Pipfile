@@ -17,6 +17,7 @@ tortoise-orm = "*"
 pyrebase4 = "*"
 uvicorn = {version = "*", extras = ["standard"]}
 pydantic = {version = "*", extras = ["email"]}
+python-multipart = "*"
 
 [dev-packages]
 
