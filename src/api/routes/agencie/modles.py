@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_serializer
 from pydantic import EmailStr, AnyUrl
 from pydantic_extra_types.phone_numbers import PhoneNumber
 
@@ -11,6 +11,14 @@ class AgencyCreationForm(BaseModel):
     phone_number:  PhoneNumber
     why_choose_us: str | None = None
     agency_images: list[AnyUrl] | None = None
+
+
+    @field_serializer('agency_images')
+    def serialize_url(agency_images: list[AnyUrl]) -> list[str]:
+        result = []
+        for item in agency_images:
+            result.append(str(item))
+        return result
 
     model_config = {
         "json_schema_extra": {

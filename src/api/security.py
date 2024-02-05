@@ -1,19 +1,20 @@
 from fastapi.security import OAuth2PasswordBearer
 from pydantic import BaseModel, Field, EmailStr, AnyUrl
-from pydantic_extra_types.phone_numbers import PhoneNumber
 from typing import Annotated
 from fastapi import Depends, status
 from fastapi.exceptions import HTTPException
 from fastapi.security import OAuth2PasswordRequestForm
 from firebase_admin import auth
-from .database.modles import UserOut
-from datetime import datetime
+from .database import (
+    USER_FROM_TOKEN
+)
+
 
 from . import database
 
 oauth2_scheme = OAuth2PasswordBearer(
     tokenUrl='/user/login',
-    scopes={'items': 'permissions to access items'}
+    scopes={}
 )
 
 
@@ -46,15 +47,7 @@ TOKEN_DEP = Annotated[str, Depends(oauth2_scheme)]
 
 async def get_current_user(token: TOKEN_DEP):
     try: 
-        user = auth.verify_id_token(token)
-        data = database.get_user_data(user['uid'])
-        if not user:
-            raise HTTPException(
-                status_code=status.HTTP_401_UNAUTHORIZED,
-                detail="Invalid authentication credentials",
-                headers={"WWW-Authenticate": "Bearer"},
-            )
-       
+        data = USER_FROM_TOKEN(token).data
         return data
 
     except:

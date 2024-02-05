@@ -54,6 +54,8 @@ async def user_creation_eror(_: Request, exception: exceptions.UserCreationError
         content={'message': exception_message(exception)}
     )
 
+# async def slow_internet_connection()
+
 
 def register_exception_handlers(app: FastAPI) -> None:
     """Add exception handlers to FastAPI app
